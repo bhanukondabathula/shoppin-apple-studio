@@ -45,7 +45,7 @@ export default function BandSelector({
 
   return (
     <div className="flex flex-col items-center min-h-screen p-6 relative">
-      {/* Main Watch Image */}
+
       <div className="relative flex items-center justify-center">
         <img
           src={
@@ -58,7 +58,7 @@ export default function BandSelector({
         />
       </div>
 
-      {/* Band Selection Section */}
+   
       <div className="flex items-center justify-between w-full max-w-3xl mt-6">
         <button onClick={() => handleScroll('left')} className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full">
           &lt;
@@ -90,7 +90,7 @@ export default function BandSelector({
         </button>
       </div>
 
-      {/* View Toggle Button */}
+ 
       <button
         onClick={() => setView((prevView) => (prevView === 'front' ? 'side' : 'front'))}
         className="text-blue-500 underline mt-4"
@@ -111,7 +111,6 @@ export default function BandSelector({
         <p className="text-gray-500 mt-4">Please select a case to preview.</p>
       )}
 
-      {/* Band Type Buttons */}
       <div className="flex space-x-4 mt-6">
         {['sport', 'braided', 'nike'].map((type) => (
           <button
@@ -124,7 +123,7 @@ export default function BandSelector({
         ))}
       </div>
 
-      {/* Action Buttons */}
+   
       <div className="flex space-x-6 mt-4">
         <button
           className="bg-gray-800 text-white py-2 px-6 rounded-lg shadow-md flex items-center space-x-2 hover:bg-gray-700"

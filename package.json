@@ -12,6 +12,7 @@
     "@heroicons/react": "^2.2.0",
     "apple-watch-studio": "file:",
     "framer-motion": "^11.15.0",
+    "html2canvas": "^1.4.1",
     "next": "15.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -37,11 +37,9 @@ export default function CaseSelector({
 
   return (
     <div className="flex flex-col items-center min-h-screen p-6 bg-white relative">
-      {/* Header */}
-
-      {/* Carousel Section */}
+     
       <div className="relative w-full max-w-5xl">
-        {/* Left Arrow */}
+     
         <button
           onClick={() => scrollContainer("left")}
           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-black p-2 rounded-full shadow-lg hover:bg-gray-400 z-10"
@@ -50,7 +48,7 @@ export default function CaseSelector({
           &lt;
         </button>
 
-        {/* Scrollable Container */}
+    
         <div
           id="case-scroll-container"
           className="flex overflow-x-auto scrollbar-hide scroll-smooth space-x-8 items-center mb-6"
@@ -79,7 +77,7 @@ export default function CaseSelector({
           ))}
         </div>
 
-        {/* Right Arrow */}
+      
         <button
           onClick={() => scrollContainer("right")}
           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-black p-2 rounded-full shadow-lg hover:bg-gray-400 z-10"
@@ -89,7 +87,6 @@ export default function CaseSelector({
         </button>
       </div>
 
-      {/* Selected Case Preview */}
       {selectedCase ? (
   <div className="mt-4">
     <p className="text-gray-500 text-sm">
@@ -108,7 +105,6 @@ export default function CaseSelector({
 )}
 
 
-      {/* Material Selection */}
       <div className="flex justify-center space-x-4 mb-8">
         <button
           className={`py-2 px-6 rounded-md font-medium ${
@@ -128,8 +124,6 @@ export default function CaseSelector({
         </button>
       </div>
 
-      {/* Action Buttons */}
-      {/* Action Buttons */}
       <div className="flex space-x-6">
   <button
     className="bg-gray-800 text-white py-2 px-6 rounded-lg shadow-md flex items-center space-x-2 hover:bg-gray-700"

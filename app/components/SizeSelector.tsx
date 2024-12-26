@@ -22,14 +22,12 @@ export default function SizeSelector({
     },
   ];
 
-  const [selectedSize, setSelectedSize] = useState<number>(1);  // Default to 42mm
-  const [view, setView] = useState<'front' | 'side'>('front');  // Toggle views
+  const [selectedSize, setSelectedSize] = useState<number>(1); 
+  const [view, setView] = useState<'front' | 'side'>('front');  
   const selectedSizeDetails = sizes.find((c) => c.id === selectedSize);
   return (
     <div className="flex flex-col items-center min-h-screen p-6 relative">
-      {/* Save Button */}
 
-      {/* Toggle View Button */}
       <button
         className="text-blue-500 underline mb-4"
         onClick={() => setView(view === 'front' ? 'side' : 'front')}
@@ -37,9 +35,8 @@ export default function SizeSelector({
         {view === 'front' ? 'Side view' : 'Front view'}
       </button>
 
-      {/* Size Image Preview */}
       <div className="flex mb-4 space-x-6">
-        {/* Small Image */}
+     
         <div
           className={`transition-all duration-500 ease-in-out transform ${
             selectedSize === 1 ? 'scale-100' : 'scale-90 opacity-60'
@@ -52,7 +49,6 @@ export default function SizeSelector({
           />
         </div>
 
-        {/* Large Image */}
         <div
           className={`transition-all duration-500 ease-in-out transform ${
             selectedSize === 2 ? 'scale-100' : 'scale-90 opacity-60'
@@ -72,7 +68,7 @@ export default function SizeSelector({
           </h2>
           <h2>{" "}Price:{"$ "}
             {selectedSizeDetails
-              ? selectedSizeDetails.price // Access Price directly, not as a function
+              ? selectedSizeDetails.price 
               : "Unknown"}</h2>
         </div>
       ) : (
@@ -95,7 +91,7 @@ export default function SizeSelector({
         ))}
       </div>
 
-      {/* Action Buttons */}
+
       <div className="flex space-x-6">
   <button
     className="bg-gray-800 text-white py-2 px-6 rounded-lg shadow-md flex items-center space-x-2 hover:bg-gray-700"
