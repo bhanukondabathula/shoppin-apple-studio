@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react';
 
-const Header = () => {
+// Defining the types for the props of the Header component
+interface HeaderProps {
+  selectedCollection: string;
+  setSelectedCollection: (collection: string) => void;
+  collectionImages: Record<string, { name: string; image: string }>;
+}
+
+const Header = ({ selectedCollection, setSelectedCollection, collectionImages }: HeaderProps) => {
   const [isCollectionDropdownOpen, setIsCollectionDropdownOpen] = useState(false);
   const [isShareDropdownOpen, setIsShareDropdownOpen] = useState(false);
-  const [selectedCollection, setSelectedCollection] = useState('Apple Watch Series 10');
-  
+
   const collections = [
     'Apple Watch Series 10',
     'Apple Watch Hermès Series 10',
@@ -13,13 +19,11 @@ const Header = () => {
 
   const [shareUrl, setShareUrl] = useState('');
 
-
   useEffect(() => {
     const currentUrl = new URL(window.location.href);
     currentUrl.searchParams.set('collection', selectedCollection);
     setShareUrl(currentUrl.toString());
   }, [selectedCollection]);
-
 
   const handleShare = (platform: string) => {
     const url = encodeURIComponent(shareUrl);
@@ -46,9 +50,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white p-4 shadow-md w-full">
+    <header className="bg-white p-4 w-full">
       <div className="flex items-center justify-between">
-
         <div className="absolute left-0 ml-4">
           <img
             src="https://tse4.mm.bing.net/th?id=OIP.0G_U0hC3hggy3TV_NfkdmAAAAA&pid=Api&P=0&h=180"
@@ -104,20 +107,14 @@ const Header = () => {
         </div>
 
         <div className="absolute right-0 mr-4 flex space-x-4">
-          <button
-            className="bg-blue-500 text-white py-2 px-6 rounded-md"
-          >
-            Save
-          </button>
+          <button className="bg-blue-500 text-white py-2 px-6 rounded-md">Save</button>
 
-      
           <button
             onClick={() => setIsShareDropdownOpen(!isShareDropdownOpen)}
             className="bg-green-500 text-white py-2 px-6 rounded-md"
           >
             Share
           </button>
-
 
           {isShareDropdownOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg z-10 transition-all ease-in-out duration-200">
@@ -148,11 +145,6 @@ const Header = () => {
             </div>
           )}
         </div>
-      </div>
-
-      <div id="config-section" className="mt-6">
-    
-        <p>{`Selected Collection: ${selectedCollection}`}</p>
       </div>
     </header>
   );
