@@ -1,23 +1,25 @@
 import { useState } from 'react';
 
 export default function SizeSelector({
+  selectedCollection,
   navigateTo,
   goBack,
 }: {
   navigateTo: (page: string) => void;
   goBack: () => void;
+  selectedCollection: string; 
 }) {
   const sizes = [
     {
       id: 1,
       size: '42mm',
-      price: 1150,
+      price: 280,
       smallImage: 'https://www.apple.com/newsroom/images/2024/09/introducing-apple-watch-series-10/article/Apple-Watch-Series-10-watch-face-Flux-240909_inline.jpg.large.jpg',
     },
     {
       id: 2,
       size: '46mm',
-      price: 1250,
+      price: 360,
       largeImage: 'https://rukminim2.flixcart.com/image/750/900/xif0q/smartwatch/j/m/6/-original-imah4jndaff8bgz7.jpeg?q=20&crop=false',
     },
   ];
@@ -61,6 +63,7 @@ export default function SizeSelector({
           />
         </div>
       </div>
+      <h2 className="text-xl font-bold">{selectedCollection}</h2>
       {selectedSize ? (
         <div className="mt-4">
           <h2 className="text-gray-500 text-sm">

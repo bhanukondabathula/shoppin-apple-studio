@@ -83,21 +83,21 @@ export default function page() {
       
         {currentPage === 'size' && (
           <SizePage
-        
+          selectedCollection={selectedCollection}
             navigateTo={navigateTo}
             goBack={goBack}
           />
         )}
         {currentPage === 'case' && (
           <CasePage
-        
+            selectedCollection={selectedCollection}
             navigateTo={navigateTo}
             goBack={goBack}
           />
         )}
         {currentPage === 'band' && (
           <BandPage
-          
+            selectedCollection={selectedCollection}
             navigateTo={navigateTo}
             goBack={goBack}
           />
