@@ -1,9 +1,6 @@
 import { useState } from 'react';
 
-// Define BandType for type safety
-type BandType = 'sport' | 'braided' | 'nike';
 
-// Define the props expected in the component
 interface BandSelectorProps {
   selectedCollection: string;
   navigateTo: (page: string) => void;
@@ -13,13 +10,13 @@ interface BandSelectorProps {
     name: string;
     price: number;
     color: string;
-    type: BandType;
+    type: string;
     image: string;
     watchfront: string;
     watchside: string;
   }>;
-  selectedBand: number | null; // Accept the selected band from the parent
-  setSelectedBand: (id: number | null) => void; // Function to update the selected band in the parent
+  selectedBand: number | null; 
+  setSelectedBand: (id: number | null) => void; 
 }
 
 export default function BandSelector({
@@ -30,15 +27,14 @@ export default function BandSelector({
   navigateTo,
   goBack,
 }: BandSelectorProps) {
-  const [selectedType, setSelectedType] = useState<BandType>('sport');
+  const [selectedType, setSelectedType] = useState<string>('sport');
   const [scrollIndex, setScrollIndex] = useState(0);
   const [view, setView] = useState<'front' | 'side'>('front');
 
-  // Filter bands based on selected type
+ 
   const filteredBands = bands.filter((band) => band.type === selectedType);
   const selectedBandDetails = bands.find((band) => band.id === selectedBand);
 
-  // Handle scroll behavior for band selection
   const handleScroll = (direction: 'left' | 'right') => {
     if (direction === 'left') {
       setScrollIndex((prev) => Math.max(prev - 1, 0));
@@ -49,24 +45,24 @@ export default function BandSelector({
 
   return (
     <div className="flex flex-col items-center min-h-screen p-6 relative">
-      {/* Watch Display */}
+   
       <div className="relative flex items-center justify-center">
         <img
           src={
             selectedBandDetails
               ? view === 'front'
-                ? selectedBandDetails.watchfront // Display front view
-                : selectedBandDetails.watchside // Display side view
+                ? selectedBandDetails.watchfront 
+                : selectedBandDetails.watchside 
               : view === 'front'
-              ? 'https://pngimg.com/uploads/watches/watches_PNG9899.png' // Default front view if no band is selected
-              : 'https://www.bhphotovideo.com/images/images2500x2500/apple_mu692ll_a_watch_series_4_gps_1434917.jpg' // Default side view if no band is selected
+              ? 'https://pngimg.com/uploads/watches/watches_PNG9899.png' 
+              : 'https://www.bhphotovideo.com/images/images2500x2500/apple_mu692ll_a_watch_series_4_gps_1434917.jpg' 
           }
           alt={view === 'front' ? 'Front View' : 'Side View'}
           className="w-40 max-w-sm rounded-lg mb-4 z-10"
         />
       </div>
 
-      {/* Band Selector */}
+  
       <div className="flex items-center justify-between w-full max-w-3xl mt-6">
         <button onClick={() => handleScroll('left')} className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full">
           &lt;
@@ -98,7 +94,7 @@ export default function BandSelector({
         </button>
       </div>
 
-      {/* View Toggle */}
+   
       <button
         onClick={() => setView((prevView) => (prevView === 'front' ? 'side' : 'front'))}
         className="text-blue-500 underline mt-4"
@@ -106,7 +102,6 @@ export default function BandSelector({
         {view === 'front' ? 'Side View' : 'Front View'}
       </button>
 
-      {/* Selected Band Details */}
       <h2 className="text-xl font-bold">{selectedCollection}</h2>
       {selectedBandDetails ? (
         <div className="mt-4 text-center">
@@ -119,7 +114,6 @@ export default function BandSelector({
         <p className="text-gray-500 mt-4">Please select a band to preview.</p>
       )}
 
-      {/* Band Type Selector */}
       <div className="flex space-x-4 mt-6">
         {['sport', 'braided', 'nike'].map((type) => (
           <button
@@ -127,14 +121,14 @@ export default function BandSelector({
             className={`py-2 px-4 rounded-lg transition ${
               selectedType === type ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'
             }`}
-            onClick={() => setSelectedType(type as BandType)}
+            onClick={() => setSelectedType(type as string)}
           >
             {type.charAt(0).toUpperCase() + type.slice(1)}
           </button>
         ))}
       </div>
 
-      {/* Navigation Buttons */}
+ 
       <div className="flex space-x-6 mt-4">
         <button
           className="bg-gray-800 text-white py-2 px-6 rounded-lg shadow-md hover:bg-gray-700"

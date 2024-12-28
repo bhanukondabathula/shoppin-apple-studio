@@ -19,12 +19,12 @@ export default function CaseSelector({
   navigateTo: (page: string) => void;
   goBack: () => void;
 }) {
-  // Filter the cases based on the selected type (aluminum or titanium)
+ 
   const filteredCases = Object.values(allCases).filter(
     (watchCase) => watchCase.type === selectedType
   );
 
-  // Function to scroll the case selection container
+
   const scrollContainer = (direction: "left" | "right") => {
     const container = document.getElementById("case-scroll-container");
     if (container) {
@@ -32,12 +32,12 @@ export default function CaseSelector({
     }
   };
 
-  // Get the details of the selected case
+
   const selectedCaseDetails = allCases[selectedCase || 0];
 
   return (
     <div className="flex flex-col items-center min-h-screen p-6 bg-white relative">
-      {/* Scroll buttons */}
+
       <div className="relative w-full max-w-5xl">
         <button
           onClick={() => scrollContainer("left")}
@@ -47,7 +47,7 @@ export default function CaseSelector({
           &lt;
         </button>
 
-        {/* Case selection container */}
+       
         <div
           id="case-scroll-container"
           className="flex overflow-x-auto scrollbar-hide scroll-smooth space-x-8 items-center mb-6"
@@ -76,7 +76,6 @@ export default function CaseSelector({
           ))}
         </div>
 
-        {/* Scroll buttons */}
         <button
           onClick={() => scrollContainer("right")}
           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-black p-2 shadow-lg hover:bg-gray-400 z-10"
@@ -86,10 +85,9 @@ export default function CaseSelector({
         </button>
       </div>
 
-      {/* Collection Title */}
       <h2 className="text-xl font-bold">{selectedCollection}</h2>
 
-      {/* Selected Case Details */}
+    
       {selectedCase ? (
         <div className="mt-4">
           <p className="text-gray-500 text-sm">
@@ -103,7 +101,7 @@ export default function CaseSelector({
         <p className="text-gray-500 mt-4">Please select a case to preview.</p>
       )}
 
-      {/* Case Type Selection */}
+
       <div className="flex justify-center space-x-4 mb-8">
         <button
           className={`py-2 px-6 rounded-md font-medium ${selectedType === "aluminum" ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"}`}
@@ -119,7 +117,7 @@ export default function CaseSelector({
         </button>
       </div>
 
-      {/* Navigation Buttons */}
+
       <div className="flex space-x-6">
         <button
           className="bg-gray-800 text-white py-2 px-6 rounded-lg shadow-md flex items-center space-x-2 hover:bg-gray-700"

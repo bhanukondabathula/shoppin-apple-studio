@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-// Defining the types for the props of the Header component
+
 interface HeaderProps {
   selectedCollection: string;
   setSelectedCollection: (collection: string) => void;

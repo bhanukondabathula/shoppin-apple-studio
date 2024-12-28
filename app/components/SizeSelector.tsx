@@ -11,17 +11,24 @@ export default function SizeSelector({
   navigateTo: (page: string) => void;
   goBack: () => void;
   selectedCollection: string;
-  selectedSize: number;
-  setSelectedSize: React.Dispatch<React.SetStateAction<number>>;
-  sizes: { id: number; size: string; smallImage: string; largeImage: string; price: number }[];
+  selectedSize: number | null;
+  setSelectedSize: (id:number | null)=>void;
+  sizes: Array<{
+    id: number;
+    size: string;
+    image: string;
+    price: number;
+  }>;
+  
 }) {
-  // Find the details of the selected size
+ 
   const selectedSizeDetails = sizes.find((size) => size.id === selectedSize);
+  
 
   return (
     <div className="flex flex-col items-center min-h-screen p-6 relative">
+
       <div className="flex mb-4 space-x-6">
-        {/* Display both front and side images for each size */}
         {sizes.map((size) => (
           <div
             key={size.id}
@@ -30,13 +37,14 @@ export default function SizeSelector({
             }`}
           >
             <img
-              src={size.id === 1 ? size.smallImage : size.largeImage}  // Conditionally render images based on size id
+              src={size.image} // Using the image field directly
               alt={`${size.size} watch`}
               className="w-96 h-96 object-contain rounded-lg"
             />
           </div>
         ))}
       </div>
+
 
       <h2 className="text-xl font-bold">{selectedCollection}</h2>
 
@@ -49,12 +57,11 @@ export default function SizeSelector({
         <p className="text-gray-500 mt-4">Please select a case to preview.</p>
       )}
 
-      {/* Size selection buttons */}
       <div className="flex space-x-4 mb-6 py-4">
         {sizes.map((size) => (
           <button
             key={size.id}
-            onClick={() => setSelectedSize(size.id)}  // Set the selected size on click
+            onClick={() => setSelectedSize(size.id)}  
             className={`py-2 px-4 text-lg font-semibold rounded-lg border ${
               selectedSize === size.id
                 ? 'bg-transparent text-blue-500 border-blue-500'
@@ -66,7 +73,6 @@ export default function SizeSelector({
         ))}
       </div>
 
-      {/* Navigation buttons */}
       <div className="flex space-x-6">
         <button
           className="bg-gray-800 text-white py-2 px-6 rounded-lg shadow-md flex items-center space-x-2 hover:bg-gray-700"

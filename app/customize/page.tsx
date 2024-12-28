@@ -15,7 +15,7 @@ export default function Page() {
   const [selectedBand, setSelectedBand] = useState<number | null>(null);
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
 
-  // Other constants (like collectionImages, allCases, etc.)
+
   const collectionImages: Record<string, { name: string, image: string }> = {
     'Apple Watch Series 10': {
       name: 'Apple Watch Series 10',
@@ -65,13 +65,13 @@ export default function Page() {
       id: 1,
       size: '42mm',
       price: 280,
-      smallImage: 'https://www.apple.com/newsroom/images/2024/09/introducing-apple-watch-series-10/article/Apple-Watch-Series-10-watch-face-Flux-240909_inline.jpg.large.jpg',
+      image: 'https://www.apple.com/newsroom/images/2024/09/introducing-apple-watch-series-10/article/Apple-Watch-Series-10-watch-face-Flux-240909_inline.jpg.large.jpg',
     },
     {
       id: 2,
       size: '46mm',
       price: 360,
-      largeImage: 'https://rukminim2.flixcart.com/image/750/900/xif0q/smartwatch/j/m/6/-original-imah4jndaff8bgz7.jpeg?q=20&crop=false',
+      image: 'https://rukminim2.flixcart.com/image/750/900/xif0q/smartwatch/j/m/6/-original-imah4jndaff8bgz7.jpeg?q=20&crop=false',
     },
   ];
     const calculatePrice = () => {
@@ -81,10 +81,10 @@ export default function Page() {
         total += allCases[selectedCase].price;
       }
       if (selectedSize !== null) {
-        total += sizes[selectedSize - 1].price; // Adjust index since size IDs start from 1
+        total += sizes[selectedSize - 1].price; 
       }
       if (selectedBand !== null) {
-        total += bands[selectedBand - 1].price; // Adjust index since band IDs start from 1
+        total += bands[selectedBand - 1].price; 
       }
 
       return total;
