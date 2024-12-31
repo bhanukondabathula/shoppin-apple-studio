@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-
 interface HeaderProps {
   selectedCollection: string;
   setSelectedCollection: (collection: string) => void;
@@ -10,6 +9,7 @@ interface HeaderProps {
 const Header = ({ selectedCollection, setSelectedCollection, collectionImages }: HeaderProps) => {
   const [isCollectionDropdownOpen, setIsCollectionDropdownOpen] = useState(false);
   const [isShareDropdownOpen, setIsShareDropdownOpen] = useState(false);
+  const [isSaveModalVisible, setIsSaveModalVisible] = useState(false);
 
   const collections = [
     'Apple Watch Series 10',
@@ -47,6 +47,13 @@ const Header = ({ selectedCollection, setSelectedCollection, collectionImages }:
     }
 
     window.open(shareLink, '_blank');
+  };
+
+  const handleSave = () => {
+    setIsSaveModalVisible(true);
+    setTimeout(() => {
+      setIsSaveModalVisible(false);
+    }, 3000); // Automatically hide after 3 seconds
   };
 
   return (
@@ -107,7 +114,9 @@ const Header = ({ selectedCollection, setSelectedCollection, collectionImages }:
         </div>
 
         <div className="absolute right-0 mr-4 flex space-x-4">
-          <button className="bg-blue-500 text-white py-2 px-6 rounded-md">Save</button>
+          <button onClick={handleSave} className="bg-blue-500 text-white py-2 px-6 rounded-md">
+            Save
+          </button>
 
           <button
             onClick={() => setIsShareDropdownOpen(!isShareDropdownOpen)}
@@ -146,6 +155,22 @@ const Header = ({ selectedCollection, setSelectedCollection, collectionImages }:
           )}
         </div>
       </div>
+
+      {/* Save Modal */}
+      {isSaveModalVisible && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-xl font-semibold mb-2">Your choices have been saved!</h2>
+            <p className="text-gray-600 mb-4">We will shortly provide your choices.</p>
+            <button
+              onClick={() => setIsSaveModalVisible(false)}
+              className="bg-blue-500 text-white py-2 px-4 rounded-md"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

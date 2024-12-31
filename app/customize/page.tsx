@@ -32,16 +32,15 @@ export default function Page() {
   };
 
   const allCases: Record<string, { id: number, name: string, price: number, type: string, image: string }> = {
-    1: { id: 1, name: "Aluminum", price: 220, type: "aluminum", image: "https://rukminim2.flixcart.com/image/850/1000/xif0q/shopsy-smartwatch/v/p/c/1-44-android-ios-new-t5000-zdea-yes-original-imagw4fuxpfpzy6v.jpeg?q=90&crop=false" },
-    2: { id: 2, name: "Aluminum", price: 220, type: "aluminum", image: "https://alarm-stores.com/wp-content/uploads/2024/09/Jet-Black-2.png" },
-    3: { id: 3, name: "Aluminum", price: 220, type: "aluminum", image: "https://rukminim1.flixcart.com/image/300/300/xif0q/smartwatch/e/j/r/44-android-ios-t500-jb-a1-jb-sons-yes-original-imagzhbmygeg52pv.jpeg" },
-    4: { id: 4, name: "Aluminum", price: 220, type: "aluminum", image: "https://rukminim1.flixcart.com/image/300/300/xif0q/smartwatch/w/2/u/44-android-ios-t500-jb-a14-jb-sons-yes-original-imagzhc8scnrbbeh.jpeg" },
-    5: { id: 5, name: "Aluminum", price: 220, type: "aluminum", image: "https://rukminim1.flixcart.com/image/300/300/xif0q/smartwatch/r/w/2/44-android-ios-t500-jb-a36-jb-sons-yes-original-imagzhdsdfbkz85d.jpeg" },
-    6: { id: 6, name: "Titanium", price: 220, type: "titanium", image: "https://img-cdn.heureka.group/v1/d8ee801a-0e4c-483a-adfb-5867c62c2123.jpg" },
-    7: { id: 7, name: "Rose Gold", price: 320, type: "aluminum", image: "https://rukminim1.flixcart.com/image/300/300/xif0q/smartwatch/o/i/g/44-android-ios-t500-jb-a18-jb-sons-yes-original-imagzqv2xrnfzz9h.jpeg" },
-    8: { id: 8, name: "Steel", price: 300, type: "titanium", image: "https://img-cdn.heureka.group/v1/d8ee801a-0e4c-483a-adfb-5867c62c2123.jpg" },
-    9: { id: 9, name: "Steel", price: 320, type: "titanium", image: "https://img-cdn.heureka.group/v1/d8ee801a-0e4c-483a-adfb-5867c62c2123.jpg" },
-    10: { id: 10, name: "Steel", price: 320, type: "titanium", image: "https://in.static.webuy.com/product_images/Electronics/Apple%20Watch/SAWAT10CSLTI46C_l.jpg" },
+    1: { id: 1, name: "Aluminum", price: 220, type: "aluminum", image: "https://alarm-stores.com/wp-content/uploads/2024/09/Jet-Black-2.png" },
+    2: { id: 2, name: "Aluminum", price: 220, type: "aluminum", image: "https://rukminim1.flixcart.com/image/300/300/xif0q/smartwatch/e/j/r/44-android-ios-t500-jb-a1-jb-sons-yes-original-imagzhbmygeg52pv.jpeg" },
+    3: { id: 3, name: "Aluminum", price: 220, type: "aluminum", image: "https://rukminim1.flixcart.com/image/300/300/xif0q/smartwatch/w/2/u/44-android-ios-t500-jb-a14-jb-sons-yes-original-imagzhc8scnrbbeh.jpeg" },
+    4: { id: 4, name: "Aluminum", price: 220, type: "aluminum", image: "https://rukminim1.flixcart.com/image/300/300/xif0q/smartwatch/r/w/2/44-android-ios-t500-jb-a36-jb-sons-yes-original-imagzhdsdfbkz85d.jpeg" },
+    5: { id: 5, name: "Titanium", price: 220, type: "titanium", image: "https://img-cdn.heureka.group/v1/d8ee801a-0e4c-483a-adfb-5867c62c2123.jpg" },
+    6: { id: 6, name: "Rose Gold", price: 320, type: "aluminum", image: "https://rukminim1.flixcart.com/image/300/300/xif0q/smartwatch/o/i/g/44-android-ios-t500-jb-a18-jb-sons-yes-original-imagzqv2xrnfzz9h.jpeg" },
+    7: { id: 7, name: "Steel", price: 300, type: "titanium", image: "https://img-cdn.heureka.group/v1/d8ee801a-0e4c-483a-adfb-5867c62c2123.jpg" },
+    8: { id: 8, name: "Steel", price: 320, type: "titanium", image: "https://img-cdn.heureka.group/v1/d8ee801a-0e4c-483a-adfb-5867c62c2123.jpg" },
+    9: { id:9, name: "Steel", price: 320, type: "titanium", image: "https://in.static.webuy.com/product_images/Electronics/Apple%20Watch/SAWAT10CSLTI46C_l.jpg" },
   };
   
   const bands = [
